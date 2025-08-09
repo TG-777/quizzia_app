@@ -12,9 +12,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    assets:
-    - assets/logo.png
-
+    
 
 
   
@@ -29,4 +27,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/logo.png
+
   
