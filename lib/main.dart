@@ -30,20 +30,19 @@ class SplashScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 40),
 
-        
             Expanded(
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset(
-                      'assets/logo.png',
-                      height: 100,
-                      width: 100,
+                      'assets/logo1.png',
+                      height: 300,
+                      width: 00,
                     ),
                     const SizedBox(height: 16),
                     const Text(
-                      'Quizzia',
+                      ' ',                      // Empty text to maintain the original structure
                       style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.bold,
@@ -54,12 +53,11 @@ class SplashScreen extends StatelessWidget {
                 ),
               ),
             ),
-
             // Footer text
             const Padding(
               padding: EdgeInsets.only(bottom: 16.0),
               child: Text(
-                'Developed by \$TG', 
+                'Developed by TG',
                 style: TextStyle(
                   fontSize: 12,
                   color: Colors.black,
