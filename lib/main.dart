@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quizza_app/views/splash_screen.dart';
+import 'package:quizza_app/views/onboarding_screen.dart';
 
 void main() {
   runApp(const QuizziaApp());
@@ -17,7 +17,7 @@ class QuizziaApp extends StatelessWidget {
         fontFamily: 'Raleway',
         primarySwatch: Colors.orange,
       ),
-      home: const SplashScreen(),
+      home: const OnboardingPage(),
     );
   }
 }

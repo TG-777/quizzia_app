@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizza_app/components/app_colours.dart';
 
 class OnboardingPage extends StatelessWidget {
   const OnboardingPage({super.key});
@@ -8,65 +9,48 @@ class OnboardingPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            // top graphic (not const because ClipRRect uses BorderRadius.circular)
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset(
-                  'assets/pattern.png',
-                  fit: BoxFit.fitWidth,
-                ),
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 24),
+          child: Column(
+            children: [
+              Image.asset(
+                'assets/images/pattern.png',
+                fit: BoxFit.fitWidth,
               ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // title (const safe)
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24.0),
-              child: Text(
+              const SizedBox(height: 24),
+              const Text(
                 'Quizzia helps you challenge and assess your knowledge in any field of study',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: FontWeight.w600,
-                  height: 1.4,
                 ),
               ),
-            ),
-
-            const SizedBox(height: 12),
-
-            // description (const safe)
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 28.0),
-              child: Text(
-                'We’ve got various categories of quizzes, including mathematics, science, anime, books, music and so much more. Let’s get started now',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.black54,
-                  height: 1.5,
+              const SizedBox(height: 24),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 4),
+                child: Text(
+                  'We’ve got various categories of quizzes, including mathematics, science, anime, books, music and so much more. Let’s get started now',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: AppColours.black2,
+                    height: 1.7,
+                  ),
                 ),
               ),
-            ),
-
-            const Spacer(),
-
-            // button (not const because style uses non-const constructors)
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0),
-              child: SizedBox(
+              const Spacer(),
+              SizedBox(
                 width: double.infinity,
-                height: 50,
+                height: 56,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF9500),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 10, vertical: 17),
+                    elevation: 0,
+                    backgroundColor: AppColours.primaryColor,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                   ),
                   onPressed: () {},
@@ -80,45 +64,43 @@ class OnboardingPage extends StatelessWidget {
                   ),
                 ),
               ),
-            ),
-
-            const SizedBox(height: 8),
-
-            // terms (use Text.rich)
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 28.0, vertical: 8),
-              child: Text.rich(
-                TextSpan(
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
-                  children: [
-                   TextSpan(text: 'By clicking Get Started, you agree to our '),
+              const SizedBox(height: 16),
+              RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  text: 'By clicking Get Started, you agree to our ',
+                  style: textStyle(),
+                  children: <TextSpan>[
                     TextSpan(
-                      text: 'Terms of Service',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.underline,
-                      ),
+                      text: 'Terms of Service ',
+                      style: textStyle(
+                        fontweight: FontWeight.w600
+                      )
                     ),
-                    TextSpan(text: ' and '),
+                    const TextSpan(text: 'and '),
                     TextSpan(
                       text: 'Privacy Policy',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w600,
-                        decoration: TextDecoration.underline,
-                      ),
+                      style: textStyle(
+                        fontweight: FontWeight.w600
+                      )
                     ),
                   ],
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
-
-            const SizedBox(height: 20),
-          ],
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  TextStyle textStyle({FontWeight? fontweight}) {
+    return TextStyle(
+        fontSize: 12,
+        color: AppColours.black2,
+        height: 2,
+        fontWeight: fontweight ?? FontWeight.w400,
+        fontFamily: 'Raleway');
+
   }
 }
